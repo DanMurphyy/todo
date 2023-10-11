@@ -39,3 +39,13 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+// Configure the 'bootJar' task
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	archiveClassifier.set("boot")
+}
+
+// Configure the 'jar' task
+tasks.named<org.gradle.jvm.tasks.Jar>("jar") {
+	archiveClassifier.set("")
+}

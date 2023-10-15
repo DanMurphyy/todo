@@ -7,7 +7,8 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
-import java.util.Date
+import java.text.SimpleDateFormat
+import java.util.*
 
 @Entity
 @Table(name = "todo")
@@ -26,8 +27,7 @@ data class Todo(
     var progress: Boolean = false,
 
     @CreationTimestamp
-    val createdAt: Date? = null,
-
+    val createdAt: String = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(Date()),
     @UpdateTimestamp
-    var updatedAt: Date? = null
+    var updatedAt: String = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH).format(Date()),
 )
